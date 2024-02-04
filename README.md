@@ -1,6 +1,5 @@
 # To do list - Overview
 
-
 ### Login for test
 You can login and check functionality of the project using test_user:
 ```
