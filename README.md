@@ -43,8 +43,3 @@ Open the project in your preferred Integrated Development Environment (IDE).
     python manage.py runserver
 8. Access the Server:
 Open your web browser and go to http://127.0.0.1:8000/ to check and use the server.
-
-#### Screenshots
-![Photo1](static/assets/img/1.png)
-![Photo1](static/assets/img/2.png)
-![Photo1](static/assets/img/3.png)
