@@ -133,3 +133,4 @@ crashlytics-build.properties
 .idea/$CACHE_FILE$
 
 .idea/codestream.x
+migrations
