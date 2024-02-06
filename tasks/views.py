@@ -40,10 +40,7 @@ class TaskStatusUpdateView(generic.UpdateView):
     def post(request, *args, **kwargs):
         task_id = kwargs.get("pk")
         task = Task.objects.get(pk=task_id)
-        if not task.done:
-            task.done = True
-        else:
-            task.done = False
+        task.done ^= True
         task.save()
         return HttpResponseRedirect(reverse_lazy("tasks:tasks-list"))
 
