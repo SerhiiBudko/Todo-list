@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .idea/
 .vscode/
 .venv
@@ -5,3 +6,10 @@ __pycache__/
 db.sqlite3
 migrations/
 static
+=======
+.venv
+__pycache__
+migrations
+db.sqlite3
+.idea
+>>>>>>> main
