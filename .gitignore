@@ -1,15 +1,7 @@
-<<<<<<< HEAD
-.idea/
-.vscode/
-.venv
-__pycache__/
-db.sqlite3
-migrations/
-static
-=======
+.idea
+.vscode
 .venv
 __pycache__
-migrations
 db.sqlite3
-.idea
->>>>>>> main
+migrations
+static
