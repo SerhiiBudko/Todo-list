@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="col-md-12 d-flex justify-content-between">
+    <h1>TODO list</h1>
+  
+  <div class="col-md-3 text-right">
+    <a class="btn btn-primary" style="float: right;" href="{% url 'tasks:create-task' %}">Add task</a>
+  </div>
+  </div>
+  {% if tasks_list %}
+      <table class="table">
+      {% for task in tasks_list %}
+        <tr>
+          <td>
+          {% if task.done %}
+            {{ task.content }}
+            <span style="color:green; font-weight: bold">Done</span>
+          {% else %}
+            {{ task.content }}
+            <span style="color:red; font-weight: bold">Not done</span>
+          {% endif %}
+            <br>
+            Created: {{ task.created }}
+            {% if task.deadline %}
+              <span style="color: red;">
+                Deadline: {{ task.deadline }}
+              </span>
+            {% else %}
+            {% endif %}
+            <br>
+            <span style="color: grey">
+              Tags:
+              {% for tag in task.tags.prefetch_related %}
+                {{ tag }}
+              {% endfor %}
+            </span>
+              <a href="{% url 'tasks:task-update' pk=task.id %}">Update</a>
+              <a href="{% url 'tasks:task-delete' pk=task.id %}">Delete</a>
+            <div class="task_status">
+              {% if task.done %}
+                <form action="{% url 'tasks:task-update-status' task.id %}" method="post">
+                  {% csrf_token %}
+                  <input type="submit" value="Undo" class="btn btn-secondary btn-sm mt-3 name=status">
+                </form>
+              {% else %}
+                <form action="{% url 'tasks:task-update-status' task.id %}" method="post">
+                  {% csrf_token %}
+                  <input type="submit" value="Complete" class="btn btn-success btn-sm mt-3 name=status">
+                </form>
+              {% endif %}
+            </div>
+          </td>
+        </tr>
+      {% endfor %}
+      </table>
+    {% endif %}
+{% endblock %}

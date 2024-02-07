@@ -1,5 +1,7 @@
+.idea
+.vscode
 .venv
 __pycache__
-migrations
 db.sqlite3
-.idea
+migrations
+static
